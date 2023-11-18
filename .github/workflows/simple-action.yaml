@@ -1,7 +1,15 @@
 name: learn-github-actions
-on: [push]
+on:
+ push:
+  branches:
+    - develop
 jobs:
-  build:
+  build-docker:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: login to docker
+        uses: docker/login-action@v3
+        with:
+          username: gigaman
+          password: 0898059295
